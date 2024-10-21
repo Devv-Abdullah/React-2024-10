@@ -87,12 +87,12 @@ var nada = new Person('Nada', 23, true);
 console.log(mohammed);*/
 
 var mohammed = new Employ( 'Mohammed', 30, false, 'Software Engineer');
-console.log(mohammed);
+// console.log(mohammed);
 
 // console.log(mohammed.isUserMarred); //undefined
 // console.log(mohammed.getIsUserMarred()); //this info is private for the person
 
 var mohammed = new Employ( 'Mohammed', 30, false, 'Software Engineer', 300);
 // console.log(mohammed);
-// console.log(mohammed.getIsUserMarred()); //this info is private for the person > because inheritance
-// console.log(mohammed.getSalary()); //150
+console.log(mohammed.getIsUserMarred()); //this info is private for the person > because inheritance
+console.log(mohammed.getSalary()); //150
