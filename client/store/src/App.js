@@ -1,29 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
 // import NewPage from './newPage';
-import ResponsiveAppBar from './nav.js'
+// import ResponsiveAppBar from './nav.js'
+// import ButtonAppBar from './componentes/navBar';
+
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from './componentes/home';
+import News from './componentes/news';
 
 function App() {
   return (
-    <div className="App">
-      <ResponsiveAppBar/>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          welcome to our react class
-        </p>
-
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<Home/>} />
+      <Route path='/news' element={<News/>} />
+    </Routes>
+    </BrowserRouter>
+  )
 }
 
 export default App;
