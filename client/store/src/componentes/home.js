@@ -5,7 +5,7 @@ export default function Home(){
         <>
             <ButtonAppBar/>
             <div>
-                <h1 style = {{color:"blue", backgroundColor:"red"}}>
+                <h1 style = {{color:"blue", backgroundColor:"red", textAlign:"center"}}>
                     Welcome to home page
                 </h1>
             </div>

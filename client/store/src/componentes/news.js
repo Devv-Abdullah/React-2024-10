@@ -6,7 +6,7 @@ export default function News(){
     <>
     <ButtonAppBar/>
     <div>
-        <h1 style = {{color:"black", backgroundColor:"yellow"}}>
+        <h1 style = {{color:"black", backgroundColor:"yellow", textAlign:"center"}}>
             Welcome to new Page
         </h1>
     </div>
