@@ -19,4 +19,4 @@ function App() {
   )
 }
 
-export default App;
+export default App; // export => يُستخدم لتصدير الوظائف، الكائنات، أو المتغيرات من ملف بحيث يمكن استخدامها في ملفات أخرى.

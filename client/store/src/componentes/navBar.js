@@ -21,14 +21,14 @@ export default function ButtonAppBar() {
           >
             <MenuIcon />
           </IconButton>
-          <a href="/" variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Home
+          <a href="/" variant="h6" component="div" sx={{ flexGrow: 1 }} style={{textDecoration:"none", paddingRight:"50px"}}>
+          Home
           </a>
-          <a href="/news" variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <a href="/news" variant="h6" component="div" sx={{ flexGrow: 1 }} style={{textDecoration:"none", paddingRight:"50px"}}>
           News
           </a>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            About us
+          About us
           </Typography>
           <Button color="inherit">Login</Button>
         </Toolbar>
