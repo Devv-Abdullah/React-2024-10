@@ -8,6 +8,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from './componentes/home';
 import News from './componentes/news';
 import Counter from './componentes/counter';
+import LifecycleDemo from './componentes/life';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Route path='/' element={<Home name="Mohammed"/>} />
       <Route path='/news' element={<News/>} />
       <Route path='/counter' element={<Counter/>} />
+      <Route path='/life' element={<LifecycleDemo/>} />
     </Routes>
     </BrowserRouter>
   )
