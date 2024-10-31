@@ -32,6 +32,11 @@ export default function ButtonAppBar() {
           News
           </Link>
           </Typography>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} >
+            <Link to="/counter" className='counter'>
+          Counter
+          </Link>
+          </Typography>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           About us
           </Typography>
