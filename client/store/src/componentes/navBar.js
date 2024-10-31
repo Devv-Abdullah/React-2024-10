@@ -6,7 +6,8 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-
+import { Link } from 'react-router-dom';
+import './style/navBar.css'
 export default function ButtonAppBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -21,12 +22,16 @@ export default function ButtonAppBar() {
           >
             <MenuIcon />
           </IconButton>
-          <a href="/" variant="h6" component="div" sx={{ flexGrow: 1 }} style={{textDecoration:"none", paddingRight:"50px"}}>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} >
+            <Link to="/" className='home'>
           Home
-          </a>
-          <a href="/news" variant="h6" component="div" sx={{ flexGrow: 1 }} style={{textDecoration:"none", paddingRight:"50px"}}>
+            </Link>
+          </Typography>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} >
+            <Link to="/news" className='news'>
           News
-          </a>
+          </Link>
+          </Typography>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           About us
           </Typography>

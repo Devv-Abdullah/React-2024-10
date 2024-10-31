@@ -1,6 +1,6 @@
 import ButtonAppBar from "./navBar";
 import NewComponent from "./classComponent";
-import './style/home.css'
+import './style/home.css' //لربط css
 
 export default function Home(props){
     return (
