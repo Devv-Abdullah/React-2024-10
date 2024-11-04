@@ -4,14 +4,15 @@ import './style/home.css' //لربط css
 import { useState } from "react";
 
 // useEffect:
-// state حاله لقيمة متغير
+// state حاله لقيمة متغير انا ببلش اتحكم فيه داخل الابليكيشن
 export default function Home(props){
-    var [counter, setCounter] = useState(0);
+    var [counter, setCounter] = useState(0); // default value => 0
     // increment counter
-    function increment(){
-        setCounter(counter+1);
-    }
-    // decrement
+
+    // function increment(){
+    //     setCounter(counter+1); // هذه هي الدالة التي نستخدمها لتغيير قيمة كاونتر كلما اردنا تغيير قيمة كاونتر نستخدم سيت كاونتر مع القيمه الجديده
+    // }
+        // decrement
     function decrement(){
         console.log('before', counter);
         setCounter(counter-1);
@@ -28,7 +29,9 @@ export default function Home(props){
                 </h1>
                 <button onClick={decrement}>-</button>
                 <p>{counter}</p>
-                <button onClick={increment}>+</button>
+                <button onClick={() =>
+                    setCounter(counter+1)
+                }>+</button>
 
                 {newList.map((item, index) =>(
                 <li key={index}>{item}</li>
