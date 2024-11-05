@@ -7,9 +7,11 @@ import { useState } from "react";
 // useEffect:
 // state حاله لقيمة متغير انا ببلش اتحكم فيه داخل الابليكيشن
 export default function Home(props){
+    const newList = ["Item1", "Item2", "Item3"]; //بدي اعرضهم
     var [counter, setCounter] = useState(0); // default value => 0
-    // increment counter
+    var [category, setCategory] = useState(0);
 
+    // increment counter
     // function increment(){
     //     setCounter(counter+1); // هذه هي الدالة التي نستخدمها لتغيير قيمة كاونتر كلما اردنا تغيير قيمة كاونتر نستخدم سيت كاونتر مع القيمه الجديده
     // }
@@ -19,7 +21,20 @@ export default function Home(props){
         setCounter(counter-1);
         console.log('after', counter);
     }
-    const newList = ["Item1", "Item2", "Item3"]; //بدي اعرضهم
+    
+    var allProducts =[
+        {name: 'product1', price:100, category:'men', dis:'this is product 1'},
+        {name: 'product2', price:100, category:'Children', dis:'this is product 1'},
+        {name: 'product3', price:100, category:'men', dis:'this is product 1'},
+        {name: 'product4', price:100, category:'Children', dis:'this is product 1'},
+        {name: 'product5', price:100, category:'men', dis:'this is product 1'},
+        {name: 'product6', price:100, category:'Children', dis:'this is product 1'},
+        {name: 'product7', price:100, category:'men', dis:'this is product 1'},
+    ]
+
+    var filterProducts = category === 'all'? allProducts : allProducts.filter(product => product.category === category)
+    
+ 
     return (
         <>
             <ButtonAppBar/>
@@ -33,10 +48,30 @@ export default function Home(props){
                 <button className="button" onClick={() =>
                     setCounter(counter+1)
                 }>+</button>
+                <br></br>
+
+                <select onChange={(e) =>
+                    setCategory(e.target.value)
+                }>
+                    <option value="all">All</option>
+                    <option value="men">Men</option>
+                    <option value="Children">Children</option>
+                </select>
 
                 {newList.map((item, index) => ( //map هو دالة في JavaScript تُستخدم لتكرار (loop) العناصر داخل المصفوفة newList
                 <li className="item" key={index}>{item}</li> //{item} يتم إدخال العنصر الحالي من newList هنا، فيعرض محتواه (مثل "Item1", "Item2", ...).
                 ))}
+
+                {
+                    filterProducts.map(product => ( // product هو ارغمنت بمثل name price catagory dis // key={product.name} بحط داخلها اشي تامميز
+                    <div key={product.name}>  
+                        <h3>{product.name}</h3>
+                        <p>{product.price}</p>
+                        <p>{product.category}</p>
+                        <p>{product.dis}</p>
+                    </div>
+                ))
+                }
             </div>
         </>
     )
