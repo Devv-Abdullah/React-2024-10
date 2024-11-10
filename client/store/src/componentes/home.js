@@ -10,6 +10,15 @@ export default function Home(props){
     const newList = ["Item1", "Item2", "Item3"]; //بدي اعرضهم
     var [counter, setCounter] = useState(0); // default value => 0
     var [category, setCategory] = useState(0);
+    var allProducts =[
+        {name: 'product1', price:100, category:'men', dis:'this is product 1'},
+        {name: 'product2', price:200, category:'Children', dis:'this is product 2'},
+        {name: 'product3', price:100, category:'men', dis:'this is product 1'},
+        {name: 'product4', price:400, category:'Children', dis:'this is product 4'},
+        {name: 'product5', price:100, category:'men', dis:'this is product 1'},
+        {name: 'product6', price:600, category:'Children', dis:'this is product 6'},
+        {name: 'product7', price:100, category:'men', dis:'this is product 1'},
+    ]
 
     // increment counter
     // function increment(){
@@ -21,16 +30,6 @@ export default function Home(props){
         setCounter(counter-1);
         console.log('after', counter);
     }
-    
-    var allProducts =[
-        {name: 'product1', price:100, category:'men', dis:'this is product 1'},
-        {name: 'product2', price:200, category:'Children', dis:'this is product 2'},
-        {name: 'product3', price:100, category:'men', dis:'this is product 1'},
-        {name: 'product4', price:400, category:'Children', dis:'this is product 4'},
-        {name: 'product5', price:100, category:'men', dis:'this is product 1'},
-        {name: 'product6', price:600, category:'Children', dis:'this is product 6'},
-        {name: 'product7', price:100, category:'men', dis:'this is product 1'},
-    ]
 
     var filterProducts = category === 'all'? allProducts : allProducts.filter(product => product.category === category)
     
