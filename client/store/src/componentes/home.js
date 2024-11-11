@@ -35,7 +35,7 @@ export default function Home(props){
     
  
     return (
-        <>   اذا شلت هاي 
+        <> 
             <ButtonAppBar/>
             <NewComponent/>
             <div>
