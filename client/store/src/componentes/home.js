@@ -9,15 +9,15 @@ import { useState } from "react";
 export default function Home(props){
     const newList = ["Item1", "Item2", "Item3"]; //بدي اعرضهم
     var [counter, setCounter] = useState(0); // default value => 0
-    var [category, setCategory] = useState(0);
+    var [category, setCategory] = useState('all');
     var allProducts =[
         {name: 'product1', price:100, category:'men', dis:'this is product 1'},
-        {name: 'product2', price:200, category:'Children', dis:'this is product 2'},
-        {name: 'product3', price:100, category:'men', dis:'this is product 1'},
-        {name: 'product4', price:400, category:'Children', dis:'this is product 4'},
-        {name: 'product5', price:100, category:'men', dis:'this is product 1'},
-        {name: 'product6', price:600, category:'Children', dis:'this is product 6'},
-        {name: 'product7', price:100, category:'men', dis:'this is product 1'},
+        {name: 'product2', price:100, category:'men', dis:'this is product 2'},
+        {name: 'product3', price:100, category:'Children', dis:'this is product 3'},
+        {name: 'product4', price:100, category:'men', dis:'this is product 4'},
+        {name: 'product5', price:100, category:'Children', dis:'this is product 5'},
+        {name: 'product6', price:100, category:'men', dis:'this is product 6'},
+        {name: 'product7', price:100, category:'Children', dis:'this is product 7'},
     ]
 
     // increment counter
@@ -35,7 +35,7 @@ export default function Home(props){
     
  
     return (
-        <>
+        <>   اذا شلت هاي 
             <ButtonAppBar/>
             <NewComponent/>
             <div>
@@ -50,7 +50,7 @@ export default function Home(props){
                 <br></br>
 
                 <select onChange={(e) =>
-                    setCategory(e.target.value)
+                    setCategory(e.target.value) // بزبط بدونها عاديe.target.value يمثل القيمة الحالية المختارة من القائمة.
                 }>
                     <option value="all">All</option>
                     <option value="men">Men</option>
@@ -69,7 +69,7 @@ export default function Home(props){
                         <p>{product.category}</p>
                         <p>{product.dis}</p>
                     </div>
-                ))
+                ))  // map ends here
                 }
             </div>
         </>
