@@ -2,6 +2,16 @@ import ButtonAppBar from "./navBar";
 import NewComponent from "./classComponent";
 import './style/home.css' //لربط css
 import { useState } from "react";
+import Card from '@mui/material/Card'
+import CardActions from '@mui/material/CardActions'
+import CardContent from '@mui/material/CardContent'
+import CardMedia from '@mui/material/CardMedia'
+import {Link} from 'react-router-dom';
+// import NewComponent from "./classComponent";
+import {useLocation} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+import Button from '@mui/material/Button';
+import Typography from "@mui/material/Typography";
 
 // NewComponent => ما بقدر اعرف تاغ دالخلها
 // useEffect:
@@ -10,6 +20,9 @@ export default function Home(props){
     const newList = ["Item1", "Item2", "Item3"]; //بدي اعرضهم
     var [counter, setCounter] = useState(0); // default value => 0
     var [category, setCategory] = useState('all');
+    const location = useLocation()
+    var Navigate = useNavigate()
+    const product = location.state || 'not found'
     var allProducts =[
         {name: 'product1', price:100, category:'men', dis:'this is product 1'},
         {name: 'product2', price:100, category:'men', dis:'this is product 2'},
@@ -20,6 +33,8 @@ export default function Home(props){
         {name: 'product7', price:100, category:'Children', dis:'this is product 7'},
     ]
 
+    allProducts[2] = product
+
     // increment counter
     // function increment(){
     //     setCounter(counter+1); // هذه هي الدالة التي نستخدمها لتغيير قيمة كاونتر كلما اردنا تغيير قيمة كاونتر نستخدم سيت كاونتر مع القيمه الجديده
@@ -29,6 +44,10 @@ export default function Home(props){
         console.log('before', counter);
         setCounter(counter-1);
         console.log('after', counter);
+    }
+
+    const handelProduct = (product) => {
+        Navigate(`/product`, {state:product})
     }
 
     var filterProducts = category === 'all'? allProducts : allProducts.filter(product => product.category === category)
@@ -56,6 +75,35 @@ export default function Home(props){
                     <option value="men">Men</option>
                     <option value="Children">Children</option>
                 </select>
+
+                {
+                    filterProducts.map(product => (
+                        <Card sx={{maxWidth: 345}} key={product.name}>
+                    <CardMedia
+
+                    sx={{height: 140}}
+                    image="/static/images/cards/contempLative-reptile.jpg"
+                    title="green iguana"
+                    />
+                    <CardContent>
+                        <Typography gutterBottom variant="h5" component="div">
+                        {product.name}
+                        </Typography>
+
+                        <Typography variant="body2" sx={{color: 'text.secondary'}}>
+                            Lizards are widespread group of squamate reptiles, with over 6,000
+                            species, ranging across all continents except Antarctica
+                        </Typography>
+                    </CardContent>
+
+                    <CardActions>
+                        <button onClick={
+                            ()=>{handelProduct(product)}
+                        } size='small'>Learn More</button>
+                    </CardActions>
+                    </Card>
+                    ))
+                }
 
                 {newList.map((item, index) => ( //map هو دالة في JavaScript تُستخدم لتكرار (loop) العناصر داخل المصفوفة newList
                 <li className="item" key={index}>{item}</li> //{item} يتم إدخال العنصر الحالي من newList هنا، فيعرض محتواه (مثل "Item1", "Item2", ...).
