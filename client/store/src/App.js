@@ -9,6 +9,7 @@ import Home from './componentes/home';
 import News from './componentes/news';
 import Counter from './componentes/counter';
 import LifecycleDemo from './componentes/life';
+import ProductData from './componentes/productDetails';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path='/news' element={<News/>} />
       <Route path='/counter' element={<Counter/>} />
       <Route path='/life' element={<LifecycleDemo/>} />
+      <Route path='/product' element={<ProductData/>} />
     </Routes>
     </BrowserRouter>
   )

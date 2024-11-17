@@ -2,6 +2,7 @@ import ButtonAppBar from "./navBar";
 //add form to add age and user name and very time you add these data if shown in a new card
 import {Card, CardContent, Typography} from '@mui/material'
 import { useState } from "react";
+import EffectPage from "./effect";
 
 export default function News(){
     const [users, setUsers] = useState([]); // عشان كل ما اضسف يوزر ينضاف لهاي اليست
@@ -16,6 +17,7 @@ export default function News(){
 
     return(
     <>
+    <EffectPage/>
     <ButtonAppBar/>
     <div>
         <h1 style = {{color:"black", backgroundColor:"yellow", textAlign:"center"}}>
