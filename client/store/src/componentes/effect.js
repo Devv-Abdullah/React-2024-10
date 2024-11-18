@@ -7,15 +7,15 @@ export default function EffectPage(){
 
     const getFact =()=>{
         fetch('https://catfact.ninja/fact')
-    .then((res)=>
-        res.json()
+        .then((res)=> // يعني بعد ما تروح تجيب الداتا من هاض الرابط سيفها داخل ريسبونس بمعنى استجابه
+        res.json() //عشان يحول الاستجابه ل جيسون 
 
-    ).then((data)=>{
-        // setData(data)
-        console.log(data)
+    ).then((apiData)=>{
+        // setData(apiData)
+        console.log(apiData)
 
-        setNewtData([...newData, data])
         setLoading(false)
+        setNewtData([...newData, apiData])
 
     })
     }
@@ -30,15 +30,15 @@ return(
     <h1>this is an effect</h1>
     <button onClick={getFact}>add fact</button>
 
-    {loading ? (<p>loading...</p>):(
+    {loading ? (<p>loading...</p>) :(
         <div>
-        {newData.map((fact, index) => (
+        {newData.map((f, index) => (
         <div key={index}>
-        <h2>{fact.fact}</h2>
+        <h2>{f.fact}</h2>
         </div>
-))}
+    ))}
         </div>
     )}
     </>
-)
+)  
 }
