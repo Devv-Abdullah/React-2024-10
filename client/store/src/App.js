@@ -10,9 +10,11 @@ import News from './componentes/news';
 import Counter from './componentes/counter';
 import LifecycleDemo from './componentes/life';
 import ProductData from './componentes/productDetails';
+import { ThemeProvider } from './componentes/theme';
 
 function App() {
   return (
+    <ThemeProvider>
     <BrowserRouter>
     <Routes>
       <Route path='/' element={<Home name="Mohammed"/>} />
@@ -22,6 +24,7 @@ function App() {
       <Route path='/product' element={<ProductData/>} />
     </Routes>
     </BrowserRouter>
+    </ThemeProvider>
   )
 }
 

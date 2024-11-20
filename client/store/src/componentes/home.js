@@ -12,6 +12,7 @@ import {useLocation} from "react-router-dom";
 import {useNavigate} from "react-router-dom";
 import Button from '@mui/material/Button';
 import Typography from "@mui/material/Typography";
+import { useTheme } from "./theme";
 
 // NewComponent => ما بقدر اعرف تاغ دالخلها
 // useEffect:
@@ -22,6 +23,9 @@ export default function Home(props){
     var [category, setCategory] = useState('all');
     const location = useLocation()
     var Navigate = useNavigate()
+
+    const { theme, toggleTheme } = useTheme();
+
     const product = location.state || 'not found'
     var allProducts =[
         {name: 'product1', price:100, category:'men', dis:'this is product 1'},
@@ -57,7 +61,10 @@ export default function Home(props){
         <> 
             <ButtonAppBar/>
             <NewComponent/>
-            <div>
+            <div style={{
+                background:theme === 'light'? "white": "Black"
+            }}>
+                <button onClick={toggleTheme}>ChangeTheme</button>
                 <h1 className="title" style = {{ textAlign:"center"}}>
                     Welcome to home page {props.name}
                 </h1>

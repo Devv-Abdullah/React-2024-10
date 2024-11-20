@@ -3,8 +3,18 @@ import ButtonAppBar from "./navBar";
 import {Card, CardContent, Typography} from '@mui/material'
 import { useState } from "react";
 import EffectPage from "./effect";
+import { useTheme } from "./theme";
+import RefComponent from "./ref";
+
+// useTheme() تستدعي السياق (ThemeContext) للحصول على القيم.
+// يتم تفكيك الكائن الذي أرجعه useTheme() إلى المتغيرين theme و toggleTheme.
+// theme: يحتوي على قيمة الثيم الحالية.
+// toggleTheme: دالة لتغيير الثيم.
+// نستخدم {} عندما يكون الناتج كائناً (Object) ونريد استخراج خصائصه.
 
 export default function News(){
+    const {theme, toggleTheme} = useTheme(); 
+
     const [users, setUsers] = useState([]); // عشان كل ما اضسف يوزر ينضاف لهاي اليست
     const [name, setName] = useState("");
     const [age, setAge] = useState(); // useState(0) 
@@ -19,7 +29,12 @@ export default function News(){
     <>
     <EffectPage/>
     <ButtonAppBar/>
-    <div>
+    <RefComponent/>
+    <div style={{
+        backgroundColor:theme === 'light'?"white":"black"
+    }}>
+        <button onClick={toggleTheme}>ChangeTheme</button>
+
         <h1 style = {{color:"black", backgroundColor:"yellow", textAlign:"center"}}>
             Welcome to new Page
         </h1>
